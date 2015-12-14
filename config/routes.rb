@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+
+  root 'fundables#index'
+
+  devise_for :users, controllers: { 
+    registrations: "users/registrations", 
+    sessions: "users/sessions",
+    passwords: "users/passwords"
+  }
+
+  get '/search', to: 'searches#search'
+
+  get '/auth/stripe_connect/callback', to: 'stripe_connect#create'
+
+  get '/connect_to_stripe', to: 'stripe_connect#connect_to_stripe'
+
+  get 'errors/file_not_found'
+
+  get 'errors/unprocessable'
+
+  get 'errors/internal_server_error'
+
+  get '/terms_of_use', to: 'pages#terms_of_use'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,12 @@
+<% if flash %>
+	 <% flash.each do |key, value| %>
+		 <% if value.is_a?(String)%>
+		 	<div class="alert alert-<%= key %>" role="alert">
+		 		<a href="#" class="close" data-dismiss="alert">&times;</a> 
+		 			<p style="margin:10px;">
+		 				<%= value %>
+		 			</p>
+		 	</div>
+		 <% end %>
+	 <% end %>
+<% end %>

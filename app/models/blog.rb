@@ -3,8 +3,8 @@ class Blog < ActiveRecord::Base
 	#acts_as_taggable
 
 	# kaminari defaults
-	# default_scope {order(created_at: :desc)}
-	# paginates_per 15
+	default_scope {order(created_at: :desc)}
+	paginates_per 15
 
 	#MODULES
 

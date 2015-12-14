@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>FundamentalFramework</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	  <%= favicon_link_tag "favicon.ico" %>
+	    <% if content_for?(:head) %>
+	    	<%= yield(:head) %>
+	    <% else %>
+	    <title>Fundamental Framework</title>      
+	    <% end %>
+		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+		<%if content_for?(:meta_description)%>
+		   <meta name="description" content="<%= yield(:meta_description) %>">
+		<% end %>
+	</head>
+	<body>
+	    <header>
+	      <div class="wrapper navbar navbar-inverse" role="navigation" style="margin-bottom:30px;">
+	          <%= render 'layouts/navigation' %>
+	      </div>
+	  	</header>
+	  	 <div class='container', style="padding-bottom:10px;">
+			<%= render 'layouts/messages' %>
+			<%= yield %>
+		    <div style="padding-top:60px;">
+		        <p style="color: gray; text-align:center;"> 
+			        'Terms of Use'
+		          </br>
+			        questions? email us: admin@mysite.com 
+		        </p>
+		    </div>
+		</div>
+	</body>
 </html>

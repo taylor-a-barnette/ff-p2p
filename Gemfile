@@ -75,7 +75,7 @@ gem 'celluloid'
 gem 'acts-as-taggable-on', '~> 3.4'
 
 #paper_trail gem to track life-cycle of payments
-gem 'paper_trail', '~> 3.0.6'
+gem 'paper_trail', '~> 4.0.0'
 
 #Figaro to handle environment variables
 gem "figaro"

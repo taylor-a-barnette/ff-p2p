@@ -2,7 +2,6 @@ class Fundable < ActiveRecord::Base
 
 	# acts_as_taggable
 	default_scope {order(proposal_published_date: :desc, created_at: :desc)}
-	paginates_per 20
 
 	#MODULES
 	include AASM
